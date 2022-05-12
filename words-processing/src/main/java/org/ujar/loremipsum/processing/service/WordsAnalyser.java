@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.ujar.loremipsum.processing.model.Report;
@@ -61,12 +63,18 @@ public class WordsAnalyser {
 
   private String[] computeParagraphWordsUsage(String paragraph, Map<String, Integer> wordsUsage) {
     String[] words = paragraph.split("\\s+");
+
+    // Example of stream usage to find words popularity.
+    // May is not the case to find wordsUsage around all available paragraphs
+    var popularWords = Arrays.stream(words).map(String::toLowerCase)
+        .collect(Collectors.groupingByConcurrent(Function.identity(), Collectors.counting()));
+
     for (final String word : words) {
       Integer qty = wordsUsage.get(word.toLowerCase());
       if (qty == null) {
         qty = 1;
       } else {
-        qty = qty + 1;
+        qty++;
       }
       wordsUsage.put(word.toLowerCase(), qty);
     }
