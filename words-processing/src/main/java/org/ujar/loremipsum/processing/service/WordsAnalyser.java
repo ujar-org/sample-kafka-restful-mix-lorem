@@ -23,7 +23,7 @@ public class WordsAnalyser {
     final Report report = new Report();
     final ArrayList<Long> pElapsedTimes = new ArrayList<>();
 
-    final Map<String, Integer> wordsFrequency = new HashMap<>();
+    final Map<String, Integer> allWordsFrequency = new HashMap<>();
     var totalProcessingTime = measureTime(() -> {
       var paragraphs = getParagraphs(rawSource);
 
@@ -32,13 +32,15 @@ public class WordsAnalyser {
 
       for (String paragraph : paragraphs) {
         var elapsedTime = measureTime(() -> {
-          var words = computeParagraphWordsUsage(paragraph, wordsFrequency);
+          String[] words = paragraph.split("\\s+");
+          var paragraphWords = computeParagraphWordsUsage(words);
+          paragraphWords.forEach((word, wordCount) -> allWordsFrequency.merge(word, wordCount.intValue(), Integer::sum));
           paragraphSizes[paragraphIndex.getAndIncrement()] = words.length;
         });
         pElapsedTimes.add(elapsedTime);
       }
 
-      report.setMostFrequentWord(findMostFrequentWord(wordsFrequency));
+      report.setMostFrequentWord(findMostFrequentWord(allWordsFrequency));
       report.setAvgParagraphSize((short) Arrays.stream(paragraphSizes).average().orElse(0.0));
 
       var avgParagraphProcessingTime = (long) pElapsedTimes.stream().mapToInt(Long::intValue).average().orElse(0.0);
@@ -61,24 +63,9 @@ public class WordsAnalyser {
     return mostFrequentWord;
   }
 
-  private String[] computeParagraphWordsUsage(String paragraph, Map<String, Integer> wordsUsage) {
-    String[] words = paragraph.split("\\s+");
-
-    // Example of stream usage to find words popularity.
-    // May is not the case to find wordsUsage around all available paragraphs
-    var popularWords = Arrays.stream(words).map(String::toLowerCase)
+  private Map<String, Long> computeParagraphWordsUsage(String[] words) {
+    return Arrays.stream(words).map(String::toLowerCase)
         .collect(Collectors.groupingByConcurrent(Function.identity(), Collectors.counting()));
-
-    for (final String word : words) {
-      Integer qty = wordsUsage.get(word.toLowerCase());
-      if (qty == null) {
-        qty = 1;
-      } else {
-        qty++;
-      }
-      wordsUsage.put(word.toLowerCase(), qty);
-    }
-    return words;
   }
 
   private List<String> getParagraphs(String rawSource) {
