@@ -34,14 +34,17 @@ steps:
     commands:
       - rm -rf /root/.m2/repository/org/ujar/
       - mvn clean compile test-compile -P default -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
-#      - mvn pmd:check -P default -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
-#      - mvn com.github.spotbugs:spotbugs-maven-plugin:check -P default -Dspotbugs.xmlOutput=true -Dspotbugs.failOnError=true -Dspotbugs.includeTests=true -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn pmd:check -P default -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn com.github.spotbugs:spotbugs-maven-plugin:check -P default -Dspotbugs.xmlOutput=true -Dspotbugs.failOnError=true -Dspotbugs.includeTests=true -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
       - mvn org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report sonar:sonar -P default -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=ujar-org:lorem-ipsum-words-processor -Dsonar.projectName=ujar-org:lorem-ipsum-words-processor --batch-mode -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
     when:
       branch:
         include:
           - main
           - feature/*
+      event:
+        include:
+          - push
 
   - name: publish-snapshot-package
     depends_on :
@@ -62,6 +65,9 @@ steps:
         include:
           - main
           - feature/*
+      event:
+        include:
+          - push
 
   - name: docker-build-dev-words-processing
     depends_on :
@@ -84,6 +90,9 @@ steps:
         include:
           - main
           - feature/*
+      event:
+        include:
+          - push
 
   - name: docker-build-dev-reports-history
     depends_on :
@@ -106,6 +115,9 @@ steps:
         include:
           - main
           - feature/*
+      event:
+        include:
+          - push
 
 services:
   - name: db
