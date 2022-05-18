@@ -41,10 +41,7 @@ steps:
       branch:
         include:
           - main
-      event:
-        include:
-          - push
-          - pull_request
+          - feature/*
 
   - name: publish-snapshot-package
     depends_on :
@@ -64,10 +61,7 @@ steps:
       branch:
         include:
           - main
-      event:
-        include:
-          - push
-          - pull_request
+          - feature/*
 
   - name: docker-build-dev-words-processing
     depends_on :
@@ -89,10 +83,7 @@ steps:
       branch:
         include:
           - main
-      event:
-        include:
-          - push
-          - pull_request
+          - feature/*
 
   - name: docker-build-dev-reports-history
     depends_on :
@@ -114,10 +105,7 @@ steps:
       branch:
         include:
           - main
-      event:
-        include:
-          - push
-          - pull_request
+          - feature/*
 
 services:
   - name: db
