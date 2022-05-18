@@ -3,9 +3,11 @@ package org.ujar.loremipsum.processing.config;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.ujar.loremipsum.processing.config.logbook.LogbookConfiguration;
-import org.ujar.loremipsum.processing.config.logbook.LogbookJsonBodyFilter;
-import org.ujar.loremipsum.processing.config.logbook.LogbookResponseOnStatus;
+import org.ujar.loremipsum.shared.config.ProjectInfoProperties;
+import org.ujar.loremipsum.shared.config.PrometheusConfiguration;
+import org.ujar.loremipsum.shared.config.logbook.LogbookConfiguration;
+import org.ujar.loremipsum.shared.config.logbook.LogbookJsonBodyFilter;
+import org.ujar.loremipsum.shared.config.logbook.LogbookResponseOnStatus;
 
 @Configuration
 @Import(value = {
