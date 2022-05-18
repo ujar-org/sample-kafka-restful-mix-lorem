@@ -7,6 +7,8 @@ trigger:
   branch:
     - main
     - feature/*
+  event:
+    - push
 
 volumes:
   - name: m2cache
