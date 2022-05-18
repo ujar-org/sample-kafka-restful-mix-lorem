@@ -24,7 +24,9 @@ import org.ujar.loremipsum.shared.config.logbook.LogbookResponseOnStatus;
 @EnableJpaRepositories({"org.ujar.loremipsum.history.repository"})
 @EnableJpaAuditing
 @EnableTransactionManagement
-@EnableConfigurationProperties({ProjectInfoProperties.class, KafkaErrorHandlingProperties.class, KafkaTopicsProperties.class})
+@EnableConfigurationProperties({ProjectInfoProperties.class,
+    KafkaErrorHandlingProperties.class,
+    KafkaTopicsProperties.class})
 @LogbookResponseOnStatus
 @LogbookJsonBodyFilter
 class ApplicationConfig {
