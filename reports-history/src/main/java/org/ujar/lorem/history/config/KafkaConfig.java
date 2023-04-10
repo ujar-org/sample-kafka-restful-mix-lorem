@@ -43,7 +43,7 @@ class KafkaConfig implements KafkaListenerConfigurer {
   @Bean
   ConcurrentKafkaListenerContainerFactory<String, ReportDto> processingReportKafkaListenerContainerFactory(
       ConsumerFactory<String, ReportDto> processingReportConsumerFactory,
-      @Value("${loremipsum.kafka.consumer.threads:4}") int threads,
+      @Value("${lorem.kafka.consumer.threads:4}") int threads,
       DefaultErrorHandler errorHandler) {
     ConcurrentKafkaListenerContainerFactory<String, ReportDto> factory =
         new ConcurrentKafkaListenerContainerFactory<>();

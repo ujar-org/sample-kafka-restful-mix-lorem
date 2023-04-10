@@ -25,12 +25,14 @@ import org.springframework.data.annotation.CreatedDate;
 @Table(name = Report.TABLE_NAME)
 public class Report {
 
-  protected static final String TABLE_NAME = "loremipsum_reports";
+  protected static final String TABLE_NAME = "lorem_reports";
 
   @Id
   @SequenceGenerator(
       name = "report_id_seq",
-      sequenceName = "report_id_seq"
+      sequenceName = "report_id_seq",
+      initialValue = 1,
+      allocationSize = 1
   )
   @GeneratedValue(
       strategy = GenerationType.SEQUENCE,

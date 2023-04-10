@@ -20,7 +20,7 @@ class WordsProcessingReportConsumer {
   private final ReportRepository repository;
 
   @KafkaListener(containerFactory = "processingReportKafkaListenerContainerFactory",
-                 topics = "${loremipsum.kafka.topics.words-processed.name}",
+                 topics = "${lorem.kafka.topics.words-processed.name}",
                  groupId = "${spring.kafka.consumer.group-id}")
   @Transactional
   public void consume(ConsumerRecord<String, ReportDto> consumerRecord) {

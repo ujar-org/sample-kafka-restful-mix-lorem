@@ -30,7 +30,7 @@ management :
 springdoc :
   show-actuator : true
 
-loremipsum :
+lorem :
   kafka :
     admin :
       create-topics : true

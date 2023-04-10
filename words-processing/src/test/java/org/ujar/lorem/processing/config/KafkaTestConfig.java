@@ -30,7 +30,7 @@ public class KafkaTestConfig {
   @Bean
   ConcurrentKafkaListenerContainerFactory<String, Report> processingReportKafkaListenerContainerFactory(
       ConsumerFactory<String, Report> processingReportConsumerFactory,
-      @Value("${loremipsum.kafka.consumer.threads:2}") int threads) {
+      @Value("${lorem.kafka.consumer.threads:2}") int threads) {
     ConcurrentKafkaListenerContainerFactory<String, Report> factory =
         new ConcurrentKafkaListenerContainerFactory<>();
     factory.setConsumerFactory(processingReportConsumerFactory);

@@ -2,7 +2,7 @@ package org.ujar.lorem.processing.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "loremipsum.net-client")
+@ConfigurationProperties(prefix = "lorem.net-client")
 public record NetClientProperties(String apiServerUrlTemplate, Integer connectTimeout, Integer requestTimeout) {
   public String getApiServerUrlTemplate() {
     return apiServerUrlTemplate();

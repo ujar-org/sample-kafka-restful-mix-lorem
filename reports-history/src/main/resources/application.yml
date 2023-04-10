@@ -124,13 +124,13 @@ management :
 embedded :
   postgresql :
     enabled : false
-    docker-image-version : 13.9
+    docker-image-version : 13.10
   kafka :
     enabled : false
     docker-image-version : 7.2.1
 
 
-loremipsum :
+lorem :
   build :
     description : '@project.description@'
     relative-path : ${SWAGGER_UI_RELATIVE_PATH:}

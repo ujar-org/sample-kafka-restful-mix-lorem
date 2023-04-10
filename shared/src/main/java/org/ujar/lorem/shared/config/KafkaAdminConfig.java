@@ -12,7 +12,7 @@ import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
 @RequiredArgsConstructor
-@ConditionalOnProperty(value = "loremipsum.kafka.admin.create-topics", havingValue = "true")
+@ConditionalOnProperty(value = "lorem.kafka.admin.create-topics", havingValue = "true")
 public class KafkaAdminConfig {
   private final KafkaTopicDefinitionProperties topicDefinitions;
   private final KafkaErrorHandlingProperties errorHandlingProperties;
