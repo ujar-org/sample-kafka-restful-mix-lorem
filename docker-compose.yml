@@ -2,7 +2,7 @@
 version : '3.8'
 services :
   lorem-words-processing :
-    image : "docker-registry.c2a2.com/sample-lorem-mix-words-processing:latest"
+    image : "docker-registry.continuousdelivery.store/sample-lorem-mix-words-processing:latest"
     container_name : lorem-demo-words-processing
     restart : unless-stopped
     depends_on :
@@ -13,7 +13,7 @@ services :
       - KAFKA_BOOTSTRAP_SERVERS=lorem-demo-kafka:9092
 
   lorem-reports-history :
-    image : "docker-registry.c2a2.com/sample-lorem-mix-reports-history:latest"
+    image : "docker-registry.continuousdelivery.store/sample-lorem-mix-reports-history:latest"
     container_name : lorem-demo-reports-history
     restart : unless-stopped
     depends_on :
