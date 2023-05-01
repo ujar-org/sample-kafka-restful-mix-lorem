@@ -15,7 +15,7 @@ volumes :
 steps :
 
   - name : code-coverage-gate
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     volumes :
       - name : m2cache
@@ -37,7 +37,7 @@ steps :
   - name : static-analysis-gate
     depends_on :
       - code-coverage-gate
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     volumes :
       - name : m2cache
@@ -110,7 +110,7 @@ volumes :
 steps :
 
   - name : publish-snapshot-jar
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     volumes :
       - name : m2cache
         path : /root/.m2
@@ -129,7 +129,7 @@ steps :
           - "*.*.x"
 
   - name : publish-release-jar
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     volumes :
       - name : m2cache
@@ -181,7 +181,7 @@ volumes :
 steps :
 
   - name : package-jar
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     volumes :
       - name : m2cache
@@ -210,7 +210,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
@@ -235,7 +235,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
@@ -260,7 +260,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
@@ -285,7 +285,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
@@ -315,7 +315,7 @@ steps :
 
   - name : create-release-tag
     failure : ignore
-    image : docker-registry.continuousdelivery.store/svc-builder:openjdk-19-slim
+    image : docker-registry.continuousdelivery.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     volumes :
       - name : m2cache
