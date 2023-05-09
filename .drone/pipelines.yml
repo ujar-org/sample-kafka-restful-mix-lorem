@@ -214,7 +214,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
+        - BASE_IMAGE=docker-registry.continuousdelivery.store/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
@@ -240,7 +240,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
+        - BASE_IMAGE=docker-registry.continuousdelivery.store/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
@@ -266,7 +266,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
+        - BASE_IMAGE=docker-registry.continuousdelivery.store/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
@@ -291,7 +291,7 @@ steps :
       registry : docker-registry.continuousdelivery.store
       force_tag : true
       build_args :
-        - BASE_IMAGE=docker-registry.c2a2.com/jre:ibm-semeru-runtimes-open-17-jre-focal
+        - BASE_IMAGE=docker-registry.continuousdelivery.store/jre:ibm-semeru-runtimes-open-17-jre-focal
         - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
