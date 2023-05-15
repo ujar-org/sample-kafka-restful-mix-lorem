@@ -43,7 +43,7 @@
         <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
         <logstash-logback-encoder.version>7.3</logstash-logback-encoder.version>
         <awaitility.version>4.2.0</awaitility.version>
-        <liquibase.version>4.21.1</liquibase.version>
+        <liquibase.version>4.22.0</liquibase.version>
         <jakarta-servlet-api.version>6.0.0</jakarta-servlet-api.version>
         <javax-cache-api.version>1.1.1</javax-cache-api.version>
         <hibernate.version>6.2.2.Final</hibernate.version>
