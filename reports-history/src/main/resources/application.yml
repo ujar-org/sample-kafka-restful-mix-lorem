@@ -158,7 +158,7 @@ management :
 embedded :
   postgresql :
     enabled : false
-    docker-image-version : 13.10
+    docker-image-version : 13.11
   kafka :
     enabled : false
     docker-image-version : 7.2.1
