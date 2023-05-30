@@ -77,6 +77,7 @@ services :
     image : docker.io/bitnami/kafka:3.4
     environment :
       KAFKA_BROKER_ID : 1
+      KAFKA_ENABLE_KRAFT: "no"
       KAFKA_CFG_LISTENERS : PLAINTEXT://:9092,PLAINTEXT_KAFKA://:9091
       KAFKA_CFG_ADVERTISED_LISTENERS : PLAINTEXT://kafka:9092,PLAINTEXT_KAFKA://kafka:9091
       KAFKA_CFG_ZOOKEEPER_CONNECT : zookeeper:2181
