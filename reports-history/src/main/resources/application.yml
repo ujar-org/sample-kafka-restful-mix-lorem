@@ -194,6 +194,8 @@ lorem :
 
 springdoc :
   show-actuator : false
+  api-docs:
+    path : ${SWAGGER_UI_RELATIVE_PATH:/}v3/api-docs
   swagger-ui :
     config-url : ${SWAGGER_UI_RELATIVE_PATH:/}v3/api-docs/swagger-config
     url : ${SWAGGER_UI_RELATIVE_PATH:/}v3/api-docs
