@@ -18,7 +18,7 @@ services :
     environment :
       ZOOKEEPER_CLIENT_PORT : 2181
       ZOOKEEPER_TICK_TIME : 2000
-      ALLOW_ANONYMOUS_LOGIN : yes
+      ALLOW_ANONYMOUS_LOGIN : "yes"
   kafka :
     image : docker.io/bitnami/kafka:3.4
     container_name : lorem-dev-kafka
@@ -32,7 +32,7 @@ services :
       KAFKA_CFG_LISTENERS : PLAINTEXT://:9092
       KAFKA_CFG_ADVERTISED_LISTENERS : PLAINTEXT://127.0.0.1:9092
       KAFKA_CFG_ZOOKEEPER_CONNECT : zookeeper:2181
-      ALLOW_PLAINTEXT_LISTENER : yes
+      ALLOW_PLAINTEXT_LISTENER : "yes"
 
   prometheus :
     container_name : lorem-dev-prometheus
