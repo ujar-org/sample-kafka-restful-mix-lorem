@@ -86,6 +86,9 @@ spring :
 server :
   port : ${SERVER_PORT:8086}
   shutdown : graceful
+  forward-headers-strategy : framework
+  tomcat:
+    redirect-context-root : false
 
 logging :
   pattern :

@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 
 @Configuration
 @ConditionalOnMissingBean(OpenAPI.class)
@@ -21,6 +22,11 @@ import org.springframework.context.annotation.Import;
 })
 @Slf4j
 public class SwaggerConfig {
+
+  @Bean
+  ForwardedHeaderFilter forwardedHeaderFilter() {
+    return new ForwardedHeaderFilter();
+  }
 
   @Configuration
   public static class OpenApiServerConfigurator {
