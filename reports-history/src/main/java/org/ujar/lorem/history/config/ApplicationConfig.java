@@ -1,5 +1,7 @@
 package org.ujar.lorem.history.config;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +29,7 @@ import org.ujar.lorem.shared.config.KafkaTopicDefinitionProperties;
     KafkaTopicDefinitionProperties.class
 })
 @EnableSpringDataWebSupport
+@OpenAPIDefinition(info = @Info(title = "Reports", version = "23.0.0"))
 class ApplicationConfig {
 
 }
