@@ -8,11 +8,9 @@ import org.ujar.lorem.shared.config.BuildInfoConfig;
 import org.ujar.lorem.shared.config.KafkaErrorHandlingProperties;
 import org.ujar.lorem.shared.config.KafkaHealthIndicatorConfig;
 import org.ujar.lorem.shared.config.KafkaTopicDefinitionProperties;
-import org.ujar.lorem.shared.config.SwaggerConfig;
 
 @Configuration
 @Import(value = {
-    SwaggerConfig.class,
     BuildInfoConfig.class,
     KafkaHealthIndicatorConfig.class
 })
