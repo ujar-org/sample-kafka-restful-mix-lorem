@@ -314,7 +314,6 @@ trigger :
 
 steps :
   - name : deploy
-    failure : ignore
     image : know-how.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     environment :
@@ -340,7 +339,6 @@ trigger :
 
 steps :
   - name : rollback
-    failure : ignore
     image : know-how.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     environment :
@@ -366,7 +364,6 @@ trigger :
 
 steps :
   - name : deploy
-    failure : ignore
     image : know-how.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     environment :
@@ -393,7 +390,6 @@ trigger :
 
 steps :
   - name : rollback
-    failure : ignore
     image : know-how.store/svc-builder:ibm-semeru-runtimes-open-17-jdk-focal
     pull : if-not-exists
     environment :
