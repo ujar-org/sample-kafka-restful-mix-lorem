@@ -192,5 +192,3 @@ lorem :
 
 springdoc :
   show-actuator : false
-  api-docs :
-    version : openapi_3_1
