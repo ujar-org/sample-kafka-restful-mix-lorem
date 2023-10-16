@@ -24,7 +24,6 @@ steps :
       DATASOURCE_DRIVER : org.postgresql.Driver
       DATASOURCE_URL : jdbc:postgresql://db:5432/svc_testing_db
       KAFKA_BOOTSTRAP_SERVERS : kafka:9092
-      MAVEN_OPTS : --add-opens java.base/java.lang=ALL-UNNAMED
       DEPLOYER_USERNAME :
         from_secret : DEPLOYER_USERNAME
       DEPLOYER_PASSWORD :
@@ -43,7 +42,6 @@ steps :
       - name : m2cache
         path : /root/.m2
     environment :
-      MAVEN_OPTS : --add-opens java.base/java.lang=ALL-UNNAMED
       DEPLOYER_USERNAME :
         from_secret : DEPLOYER_USERNAME
       DEPLOYER_PASSWORD :
@@ -132,7 +130,6 @@ steps :
       - name : m2cache
         path : /root/.m2
     environment :
-      MAVEN_OPTS : --add-opens java.base/java.lang=ALL-UNNAMED
       DEPLOYER_USERNAME :
         from_secret : DEPLOYER_USERNAME
       DEPLOYER_PASSWORD :
@@ -153,7 +150,6 @@ steps :
       - name : m2cache
         path : /root/.m2
     environment :
-      MAVEN_OPTS : --add-opens java.base/java.lang=ALL-UNNAMED
       DEPLOYER_USERNAME :
         from_secret : DEPLOYER_USERNAME
       DEPLOYER_PASSWORD :
@@ -227,7 +223,6 @@ steps :
       - name : m2cache
         path : /root/.m2
     environment :
-      MAVEN_OPTS : --add-opens java.base/java.lang=ALL-UNNAMED
       DEPLOYER_USERNAME :
         from_secret : DEPLOYER_USERNAME
       DEPLOYER_PASSWORD :
